@@ -1,3 +1,4 @@
+import java.util.HashMap;
 
 public class FlightService {
 
@@ -7,8 +8,12 @@ public class FlightService {
         this.data = new AirportPanel();
     }
 
-    public String printPlanes(){
-        String plane = this.data.getAirPlane().toString();
-        return plane;
+    public static void printPlanes(HashMap<String, Integer> airPlane) {
+        for (String name: airPlane.keySet()) {
+            String key = name;
+            String value = airPlane.get(name).toString();
+            System.out.println("\n");
+            System.out.println(key + "(" + value + ")");
+        }
     }
 }

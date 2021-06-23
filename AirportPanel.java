@@ -38,4 +38,3 @@ public class AirportPanel {
         System.out.println("Exiting...");
     }
 }
-

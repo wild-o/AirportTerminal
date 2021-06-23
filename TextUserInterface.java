@@ -56,7 +56,7 @@ public class TextUserInterface {
             String statement = reader.nextLine().trim();
 
             if (statement.equalsIgnoreCase("1")) {
-                flights.printPlanes(); //function in progress
+                flights.printPlanes(port.getAirPlane()); //function in progress
             }
             if (statement.equalsIgnoreCase("2")) {
 
