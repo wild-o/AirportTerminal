@@ -1,15 +1,17 @@
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class TextUserInterface {
 
     private Scanner reader;
     private AirportPanel port;
-    private FlightService flights;
+    private FlightService flight;
 
 
     public TextUserInterface(Scanner reader){
         this.reader = reader;
         this.port = new AirportPanel();
+        this.flight = new FlightService();
     }
 
     public void startAirportPanel(){
@@ -21,7 +23,7 @@ public class TextUserInterface {
             System.out.println("Choose operation:\n" +
                     "[1] Add airplane\n" +
                     "[2] Add flight\n" +
-                    "[x] Exit");
+                    "[3] Exit");
 
             System.out.println("\n");
             System.out.println("Statement: ");
@@ -33,11 +35,12 @@ public class TextUserInterface {
             if(statement.equalsIgnoreCase("2")){
                 addFlight();
             }
-            if(statement.equalsIgnoreCase("x")){
-                break;
+            if(statement.equalsIgnoreCase("3")){
+                startFlightService();
             }
+
         }
-        startFlightService();
+
     }
 
     public void startFlightService() {
@@ -56,19 +59,28 @@ public class TextUserInterface {
             String statement = reader.nextLine().trim();
 
             if (statement.equalsIgnoreCase("1")) {
-                flights.printPlanes(port.getAirPlane()); //function in progress
+                flight.printPlanes(port.getAirPlane()); //function in progress
             }
             if (statement.equalsIgnoreCase("2")) {
+                flight.printPlanes(port.getAirPlane());
+                flight.printFlights(port.getFlight());
+            }
+            if(statement.equalsIgnoreCase("3")){
+                System.out.println("Enter Plane ID: ");
+                String code = reader.nextLine();
+
+                //flight.printPlaneInfo(code);
+                if(port.getAirPlane().containsKey(code)){
+                    flight.printPlanes(port.getAirPlane());
+                }
+
 
             }
-            if (statement.equalsIgnoreCase("3")) {
 
-            }
             if (statement.equalsIgnoreCase("x")){
 
             }
         }
-
     }
 
     public void addPlaneInfo(){

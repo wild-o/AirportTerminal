@@ -33,6 +33,9 @@ public class AirportPanel {
     public HashMap<String, Integer> getAirPlane() {
         return airPlane;
     }
+    public HashMap<String, String> getFlight() {
+        return Flight;
+    }
 
     public void exitToFlightService(){
         System.out.println("Exiting...");
