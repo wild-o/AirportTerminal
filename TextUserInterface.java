@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.HashMap;
+
 
 public class TextUserInterface {
 
@@ -23,7 +23,7 @@ public class TextUserInterface {
             System.out.println("Choose operation:\n" +
                     "[1] Add airplane\n" +
                     "[2] Add flight\n" +
-                    "[3] Exit");
+                    "[x] Exit");
 
             System.out.println("\n");
             System.out.println("Statement: ");
@@ -35,7 +35,7 @@ public class TextUserInterface {
             if(statement.equalsIgnoreCase("2")){
                 addFlight();
             }
-            if(statement.equalsIgnoreCase("3")){
+            if(statement.equalsIgnoreCase("x")){
                 startFlightService();
             }
 
@@ -68,17 +68,13 @@ public class TextUserInterface {
             if(statement.equalsIgnoreCase("3")){
                 System.out.println("Enter Plane ID: ");
                 String code = reader.nextLine();
-
                 //flight.printPlaneInfo(code);
                 if(port.getAirPlane().containsKey(code)){
                     flight.printPlanes(port.getAirPlane());
                 }
-
-
             }
-
             if (statement.equalsIgnoreCase("x")){
-
+                System.exit(0);
             }
         }
     }
